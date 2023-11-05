@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/Nested_Class.iml" filepath="$PROJECT_DIR$/Nested_Class.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Static_Nested_Classes/Static_Nested_Classes.iml" filepath="$PROJECT_DIR$/Static_Nested_Classes/Static_Nested_Classes.iml" />
+    </modules>
+  </component>
+</project>

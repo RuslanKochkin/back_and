@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/A/Arraylist/Arraylist.iml" filepath="$PROJECT_DIR$/A/Arraylist/Arraylist.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Buffered/Buffered2/Buffered2.iml" filepath="$PROJECT_DIR$/Buffered/Buffered2/Buffered2.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Classes/Class_Car/Class_Car.iml" filepath="$PROJECT_DIR$/Classes/Class_Car/Class_Car.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Classes/Class_Car_Slovar/Class_Car_Slovar.iml" filepath="$PROJECT_DIR$/Classes/Class_Car_Slovar/Class_Car_Slovar.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Classes/Class_Employee/Class_Employee.iml" filepath="$PROJECT_DIR$/Classes/Class_Employee/Class_Employee.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Classes/Class_Tree/Class_Tree.iml" filepath="$PROJECT_DIR$/Classes/Class_Tree/Class_Tree.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Classes/Class_homework/Class_homework.iml" filepath="$PROJECT_DIR$/Classes/Class_homework/Class_homework.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Classes/Class_pirat_corabl/Class_pirat_corabl.iml" filepath="$PROJECT_DIR$/Classes/Class_pirat_corabl/Class_pirat_corabl.iml" />
+      <module fileurl="file://$PROJECT_DIR$/C/Comparable/Comparable.iml" filepath="$PROJECT_DIR$/C/Comparable/Comparable.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Enums/Enu/Enum.iml" filepath="$PROJECT_DIR$/Enums/Enu/Enum.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Enums/Enum_Month/Enum_Month.iml" filepath="$PROJECT_DIR$/Enums/Enum_Month/Enum_Month.iml" />
+      <module fileurl="file://$PROJECT_DIR$/A/Accum/For.iml" filepath="$PROJECT_DIR$/A/Accum/For.iml" />
+      <module fileurl="file://$PROJECT_DIR$/H/Hashset_1/Hashset_1.iml" filepath="$PROJECT_DIR$/H/Hashset_1/Hashset_1.iml" />
+      <module fileurl="file://$PROJECT_DIR$/H/Hashset_1/Hashset_1_home/Hashset_1_home.iml" filepath="$PROJECT_DIR$/H/Hashset_1/Hashset_1_home/Hashset_1_home.iml" />
+      <module fileurl="file://$PROJECT_DIR$/H/Hashset_1/Hashset_1_home2/Hashset_1_home2.iml" filepath="$PROJECT_DIR$/H/Hashset_1/Hashset_1_home2/Hashset_1_home2.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Inheritance/Inheritance.iml" filepath="$PROJECT_DIR$/Inheritance/Inheritance.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Interface/Interface.iml" filepath="$PROJECT_DIR$/Interface/Interface.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/Javanew.iml" filepath="$PROJECT_DIR$/.idea/Javanew.iml" />
+      <module fileurl="file://$PROJECT_DIR$/H/Leson24.03/Leson24.03.iml" filepath="$PROJECT_DIR$/H/Leson24.03/Leson24.03.iml" />
+      <module fileurl="file://$PROJECT_DIR$/M/Map/Map.iml" filepath="$PROJECT_DIR$/M/Map/Map.iml" />
+      <module fileurl="file://$PROJECT_DIR$/M/Map1/Map1.iml" filepath="$PROJECT_DIR$/M/Map1/Map1.iml" />
+      <module fileurl="file://$PROJECT_DIR$/M/Map_for_Acaunt/Map_for_Acaunt.iml" filepath="$PROJECT_DIR$/M/Map_for_Acaunt/Map_for_Acaunt.iml" />
+      <module fileurl="file://$PROJECT_DIR$/M/Map1/Map_iz_classa/Map_iz_classa.iml" filepath="$PROJECT_DIR$/M/Map1/Map_iz_classa/Map_iz_classa.iml" />
+      <module fileurl="file://$PROJECT_DIR$/A/ArrayInfo/Massiv.iml" filepath="$PROJECT_DIR$/A/ArrayInfo/Massiv.iml" />
+      <module fileurl="file://$PROJECT_DIR$/H/homework05.04/Massiv1.iml" filepath="$PROJECT_DIR$/H/homework05.04/Massiv1.iml" />
+      <module fileurl="file://$PROJECT_DIR$/A/MyArray_List/MyArray_List.iml" filepath="$PROJECT_DIR$/A/MyArray_List/MyArray_List.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Number_System/Number_System.iml" filepath="$PROJECT_DIR$/Number_System/Number_System.iml" />
+      <module fileurl="file://$PROJECT_DIR$/S/Statik/Statik.iml" filepath="$PROJECT_DIR$/S/Statik/Statik.iml" />
+      <module fileurl="file://$PROJECT_DIR$/S/String_Mirorr/String_Mirorr.iml" filepath="$PROJECT_DIR$/S/String_Mirorr/String_Mirorr.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Varargs/Varargs.iml" filepath="$PROJECT_DIR$/Varargs/Varargs.iml" />
+      <module fileurl="file://$PROJECT_DIR$/B/booliondomachka/booliondomachka.iml" filepath="$PROJECT_DIR$/B/booliondomachka/booliondomachka.iml" />
+      <module fileurl="file://$PROJECT_DIR$/H/classwork03.04/for.iml" filepath="$PROJECT_DIR$/H/classwork03.04/for.iml" />
+      <module fileurl="file://$PROJECT_DIR$/H/homework04.04/homework04.04.iml" filepath="$PROJECT_DIR$/H/homework04.04/homework04.04.iml" />
+      <module fileurl="file://$PROJECT_DIR$/H/homework29.03/homework29.03.iml" filepath="$PROJECT_DIR$/H/homework29.03/homework29.03.iml" />
+      <module fileurl="file://$PROJECT_DIR$/H/homework29.03/homework30.03/homework30.03.iml" filepath="$PROJECT_DIR$/H/homework29.03/homework30.03/homework30.03.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Inheritance/inheritance_Alcogol/inheritance_Alcogol.iml" filepath="$PROJECT_DIR$/Inheritance/inheritance_Alcogol/inheritance_Alcogol.iml" />
+      <module fileurl="file://$PROJECT_DIR$/M/metodmassiva11.04/metodmassiva11.04.iml" filepath="$PROJECT_DIR$/M/metodmassiva11.04/metodmassiva11.04.iml" />
+      <module fileurl="file://$PROJECT_DIR$/H/Leson24.03/metody/metody.iml" filepath="$PROJECT_DIR$/H/Leson24.03/metody/metody.iml" />
+      <module fileurl="file://$PROJECT_DIR$/M/modul_String/modul_String.iml" filepath="$PROJECT_DIR$/M/modul_String/modul_String.iml" />
+      <module fileurl="file://$PROJECT_DIR$/M/paska_Massiv/oop/oop.iml" filepath="$PROJECT_DIR$/M/paska_Massiv/oop/oop.iml" />
+      <module fileurl="file://$PROJECT_DIR$/M/paska_Massiv/paska_Massiv.iml" filepath="$PROJECT_DIR$/M/paska_Massiv/paska_Massiv.iml" />
+      <module fileurl="file://$PROJECT_DIR$/S/sravnenie_strok/sravnenie_strok.iml" filepath="$PROJECT_DIR$/S/sravnenie_strok/sravnenie_strok.iml" />
+      <module fileurl="file://$PROJECT_DIR$/H/Leson24.03/ternarnyuoperator/ternarnyuoperator.iml" filepath="$PROJECT_DIR$/H/Leson24.03/ternarnyuoperator/ternarnyuoperator.iml" />
+      <module fileurl="file://$PROJECT_DIR$/T/throws/throws.iml" filepath="$PROJECT_DIR$/T/throws/throws.iml" />
+      <module fileurl="file://$PROJECT_DIR$/T/throws/throws_domachka/throws_domachka.iml" filepath="$PROJECT_DIR$/T/throws/throws_domachka/throws_domachka.iml" />
+      <module fileurl="file://$PROJECT_DIR$/T/trows_hom2/trows_hom2.iml" filepath="$PROJECT_DIR$/T/trows_hom2/trows_hom2.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Varargs/untitled/untitled.iml" filepath="$PROJECT_DIR$/Varargs/untitled/untitled.iml" />
+      <module fileurl="file://$PROJECT_DIR$/M/Metody/vse.iml" filepath="$PROJECT_DIR$/M/Metody/vse.iml" />
+      <module fileurl="file://$PROJECT_DIR$/H/Leson24.03/wile_intro/wile_intro.iml" filepath="$PROJECT_DIR$/H/Leson24.03/wile_intro/wile_intro.iml" />
+    </modules>
+  </component>
+</project>

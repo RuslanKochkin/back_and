@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/Algorithms/Algorithms.iml" filepath="$PROJECT_DIR$/Algorithms/Algorithms.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Groop27.iml" filepath="$PROJECT_DIR$/Groop27.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Task19/Task19.iml" filepath="$PROJECT_DIR$/Task19/Task19.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Task_Advanced/Task_Advanced.iml" filepath="$PROJECT_DIR$/Task_Advanced/Task_Advanced.iml" />
+      <module fileurl="file://$PROJECT_DIR$/lesson1/lesson1.iml" filepath="$PROJECT_DIR$/lesson1/lesson1.iml" />
+    </modules>
+  </component>
+</project>
