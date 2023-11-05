@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/Javaproekt.iml" filepath="$PROJECT_DIR$/.idea/Javaproekt.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Mathclassy20.03/Mathclassy20.03.iml" filepath="$PROJECT_DIR$/Mathclassy20.03/Mathclassy20.03.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Unicoderovka20.03/Unicoderovka20.03.iml" filepath="$PROJECT_DIR$/Unicoderovka20.03/Unicoderovka20.03.iml" />
+      <module fileurl="file://$PROJECT_DIR$/boolian/boolian.iml" filepath="$PROJECT_DIR$/boolian/boolian.iml" />
+      <module fileurl="file://$PROJECT_DIR$/pro_ifelse/boolion/boolion.iml" filepath="$PROJECT_DIR$/pro_ifelse/boolion/boolion.iml" />
+      <module fileurl="file://$PROJECT_DIR$/pro_ifelse/domachkaif/domachkaif.iml" filepath="$PROJECT_DIR$/pro_ifelse/domachkaif/domachkaif.iml" />
+      <module fileurl="file://$PROJECT_DIR$/domachkaif/domachkaif1.iml" filepath="$PROJECT_DIR$/domachkaif/domachkaif1.iml" />
+      <module fileurl="file://$PROJECT_DIR$/dombulian/dombulian.iml" filepath="$PROJECT_DIR$/dombulian/dombulian.iml" />
+      <module fileurl="file://$PROJECT_DIR$/pro_ifelse/modul21.03/modul21.03.iml" filepath="$PROJECT_DIR$/pro_ifelse/modul21.03/modul21.03.iml" />
+      <module fileurl="file://$PROJECT_DIR$/pro_ifelse/pro_ifelse.iml" filepath="$PROJECT_DIR$/pro_ifelse/pro_ifelse.iml" />
+      <module fileurl="file://$PROJECT_DIR$/proekt1/proekt1.iml" filepath="$PROJECT_DIR$/proekt1/proekt1.iml" />
+      <module fileurl="file://$PROJECT_DIR$/project2/project2.iml" filepath="$PROJECT_DIR$/project2/project2.iml" />
+      <module fileurl="file://$PROJECT_DIR$/qwtrqwrtqrwtyqwtw/qwtrqwrtqrwtyqwtw.iml" filepath="$PROJECT_DIR$/qwtrqwrtqrwtyqwtw/qwtrqwrtqrwtyqwtw.iml" />
+      <module fileurl="file://$PROJECT_DIR$/skaner1/skaner1.iml" filepath="$PROJECT_DIR$/skaner1/skaner1.iml" />
+      <module fileurl="file://$PROJECT_DIR$/untitled/untitled.iml" filepath="$PROJECT_DIR$/untitled/untitled.iml" />
+    </modules>
+  </component>
+</project>

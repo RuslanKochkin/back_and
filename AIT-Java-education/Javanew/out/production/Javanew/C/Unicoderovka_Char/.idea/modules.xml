@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/../Javamoduli/boolion/boolion.iml" filepath="$PROJECT_DIR$/../Javamoduli/boolion/boolion.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../Javamoduli/domachkaif/domachkaif.iml" filepath="$PROJECT_DIR$/../Javamoduli/domachkaif/domachkaif.iml" />
+      <module fileurl="file://$PROJECT_DIR$/proekt20.03.vtoroy.iml" filepath="$PROJECT_DIR$/proekt20.03.vtoroy.iml" />
+    </modules>
+  </component>
+</project>
