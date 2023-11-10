@@ -5,5 +5,5 @@ import org.springframework.stereotype.Repository;
 import spring.domain.Event;
 
 @Repository
-public interface EvenRepository extends JpaRepository<Event , Integer> {
+public interface EventRepository extends JpaRepository<Event , Integer> {
 }
