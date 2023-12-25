@@ -1,7 +1,7 @@
 spring:
   datasource:
     driverClassName: org.postgresql.Driver
-    url: jdbc:postgresql://localhost:5432/pizza
+    url: jdbc:postgresql://localhost:5432/doubleDecker
     username: postgres
     password: root
 

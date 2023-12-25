@@ -23,6 +23,10 @@ public class Ticket {
     private User user;
 
     @ManyToOne
+    @JoinColumn(name = "location_id")
+    private Location location;
+
+    @ManyToOne
     @JoinColumn(name = "interval_id")
     private Interval interval;
 

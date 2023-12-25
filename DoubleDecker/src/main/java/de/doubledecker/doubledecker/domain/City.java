@@ -22,8 +22,9 @@ public class City {
     @JoinColumn(name = "country_id")
     private Country country;
 
-    private String cityName;
+    private String city;
     private String coatOfArms;
+    private String description;
 
 
 }

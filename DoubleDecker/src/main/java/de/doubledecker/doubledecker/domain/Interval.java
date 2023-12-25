@@ -22,7 +22,7 @@ public class Interval {
     @JoinColumn(name = "location_id")
     private Location location;
 
-    private Integer price;
     private String timing;
     private Integer availableTickets;
+    private Double price;
 }

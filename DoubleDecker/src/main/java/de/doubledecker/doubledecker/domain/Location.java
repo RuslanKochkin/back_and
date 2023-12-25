@@ -23,9 +23,9 @@ public class Location {
     private City city;
 
     private String street;
-    private String imageUrl;
+    private String imgLoc;
     private String latitude;
     private String longitude;
     private String imageMap;
-    private Integer rating;
+    private Double rating;
 }
