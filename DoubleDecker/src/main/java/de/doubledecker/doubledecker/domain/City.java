@@ -23,9 +23,8 @@ public class City {
     private Country country;
 
     private String city;
-    private String coatOfArms;
+    private String coat_of_arms;
     private String description;
-
 
 }
 

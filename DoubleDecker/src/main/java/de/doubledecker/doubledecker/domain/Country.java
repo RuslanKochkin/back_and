@@ -18,6 +18,6 @@ import lombok.Setter;
         @Column(name = "country_id")
         private int countryId;
         private String country;
-        private String countryImgFlag;
+        private String image_flag;
     }
 

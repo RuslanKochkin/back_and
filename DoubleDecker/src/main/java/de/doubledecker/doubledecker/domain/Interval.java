@@ -16,13 +16,13 @@ public class Interval {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @JoinColumn(name = "interval_id")
-    private Long intervalId;
+    private int intervalId;
 
     @ManyToOne
     @JoinColumn(name = "location_id")
     private Location location;
 
     private String timing;
-    private Integer availableTickets;
-    private Double price;
+    private int available_tickets;
+    private double price;
 }

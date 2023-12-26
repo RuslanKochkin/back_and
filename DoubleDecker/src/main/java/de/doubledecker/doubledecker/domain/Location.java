@@ -16,16 +16,16 @@ public class Location {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "location_id")
-    private Long locationId;
+    private int locationId;
 
     @ManyToOne
     @JoinColumn(name = "city_id")
     private City city;
 
     private String street;
-    private String imgLoc;
+    private String img_loc;
     private String latitude;
     private String longitude;
-    private String imageMap;
+    private String image_map;
     private Double rating;
 }

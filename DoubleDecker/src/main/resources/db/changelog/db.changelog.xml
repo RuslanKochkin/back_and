@@ -7,59 +7,59 @@
 
     <changeSet id="@1" author="Ruslan">
         <createTable tableName="countries">
-            <column name="country_id" type="int" autoIncrement="true">
+            <column name="country_id" type="bigint" autoIncrement="true">
                 <constraints primaryKey="true" nullable="false"></constraints>
             </column>
             <column name="country" type="varchar(100)"/>
-            <column name="countryImgFlag" type="varchar(300)"/>
+            <column name="image_flag" type="varchar(300)"/>
         </createTable>
         <createTable tableName="cities">
-            <column name="city_id" type="int" autoIncrement="true">
+            <column name="city_id" type="bigint" autoIncrement="true">
                 <constraints primaryKey="true" nullable="false"></constraints>
             </column>
-            <column name="country_id" type="int"/>
+            <column name="country_id" type="bigint"/>
             <column name="city" type="varchar(60)"/>
-            <column name="coatOfArms" type="varchar(50)"/>
+            <column name="coat_of_arms" type="varchar(50)"/>
             <column name="description" type="varchar(300)"/>
         </createTable>
         <createTable tableName="locations">
-            <column name="location_id" type="int" autoIncrement="true">
+            <column name="location_id" type="bigint" autoIncrement="true">
                 <constraints primaryKey="true" nullable="false"></constraints>
             </column>
-            <column name="city_id" type="int"/>
+            <column name="city_id" type="bigint"/>
             <column name="street" type="varchar(60)"/>
-            <column name="imgLoc" type="varchar(50)"/>
+            <column name="img_loc" type="varchar(50)"/>
             <column name="latitude" type="numeric(10,6)"/>
             <column name="longitude" type="numeric(10,6)"/>
-            <column name="imageMap" type="varchar(200)"/>
+            <column name="image_map" type="varchar(200)"/>
             <column name="rating" type="numeric(10,2)"/>
         </createTable>
         <createTable tableName="intervals">
-            <column name="interval_id" type="int" autoIncrement="true">
+            <column name="interval_id" type="bigint" autoIncrement="true">
                 <constraints primaryKey="true" nullable="false"></constraints>
             </column>
-            <column name="location_id" type="int"/>
+            <column name="location_id" type="bigint"/>
             <column name="timing" type="varchar(50)"/>
-            <column name="availableTickets" type="numeric(10,2)"/>
-            <column name="price" type="number(10,2)"/>
+            <column name="available_tickets" type="numeric(10,2)"/>
+            <column name="price" type="numeric(10,2)"/>
         </createTable>
         <createTable tableName="tickets">
-            <column name="ticket_id" type="int" autoIncrement="true">
+            <column name="ticket_id" type="bigint" autoIncrement="true">
                 <constraints primaryKey="true" nullable="false"></constraints>
             </column>
-            <column name="user_id" type="int"/>
+            <column name="user_id" type="bigint"/>
             <column name="location_id" type="int"/>
             <column name="interval_id" type="int"/>
             <column name="quantity" type="numeric(10,2)"/>
         </createTable>
         <createTable tableName="users">
-            <column name="user_id" type="int" autoIncrement="true">
+            <column name="user_id" type="bigint" autoIncrement="true">
                 <constraints primaryKey="true" nullable="false"></constraints>
             </column>
             <column name="name" type="varchar(50)"/>
             <column name="email" type="varchar(60)"/>
             <column name="password" type="varchar(50)"/>
-            <column name="role" type="numeric(10,2)"/>
+            <column name="role" type="varchar(50)"/>
         </createTable>
 
         <addForeignKeyConstraint
@@ -119,6 +119,10 @@
         <loadData tableName="locations"
                   separator=","
                   file="db/data/location.csv">
+        </loadData>
+        <loadData tableName="intervals"
+                  separator=","
+                  file="db/data/intervals.csv">
         </loadData>
     </changeSet>
 
