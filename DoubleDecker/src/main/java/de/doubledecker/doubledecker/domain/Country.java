@@ -12,12 +12,12 @@ import lombok.Setter;
 @AllArgsConstructor
 @Entity
 @Table(name = "countries")
-    public class Country{
-        @Id
-        @GeneratedValue(strategy = GenerationType.IDENTITY)
-        @Column(name = "country_id")
-        private int countryId;
-        private String country;
-        private String image_flag;
-    }
+public class Country{
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "country_id")
+    private int countryId;
+    private String country;
+    private String image_flag;
+}
 

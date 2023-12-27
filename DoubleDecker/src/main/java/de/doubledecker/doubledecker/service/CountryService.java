@@ -1,7 +1,7 @@
 package de.doubledecker.doubledecker.service;
 
 import de.doubledecker.doubledecker.controller.dto.CityDTO;
-import de.doubledecker.doubledecker.controller.dto.TourDTO;
+import de.doubledecker.doubledecker.controller.dto.CountryDTO;
 import de.doubledecker.doubledecker.domain.Country;
 import de.doubledecker.doubledecker.repository.CountryRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,15 +20,25 @@ public class CountryService {
     @Autowired
     private CityService cityService; // Предполагается, что у вас есть сервис для City
 
-    public List<TourDTO> findAll() {
+    public List<CountryDTO> findAll() {
         List<Country> countries = countryRepository.findAll();
         return countries.stream()
                 .map(this::getTourDTO)
                 .collect(Collectors.toList());
     }
 
-    private TourDTO getTourDTO(Country country) {
+    private CountryDTO getTourDTO(Country country) {
         List<CityDTO> cities = cityService.getCitiesForCountry(country.getCountryId());
-        return new TourDTO(country.getCountryId(), country.getCountry(), country.getImage_flag(), cities);
+        return new CountryDTO(country.getCountryId(), country.getCountry(), country.getImage_flag(), cities);
+    }
+
+    public CountryDTO addCountry(CountryDTO countryDTO) {
+        Country country = new Country();
+        country.setCountry(countryDTO.getCountry());
+        country.setImage_flag(countryDTO.getImageFlag());
+
+        Country savedCountry = countryRepository.save(country);
+
+        return CountryDTO.convertToCountryDTO(savedCountry);
     }
 }
