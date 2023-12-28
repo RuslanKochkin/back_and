@@ -1,3 +1,3 @@
-city_id,street,img_loc,latitude,longitude,image_map,rating
-1,Batistut 22,https://i.ibb.co/vZGCyBP/locacion1.jpg,51.516944,-0.086816,https://maps.app.goo.gl/kkop4bYM4t4sFYz2A,10
-1,Batistut 22,https://i.ibb.co/vZGCyBP/locacion1.jpg,51.516944,-0.086816,https://maps.app.goo.gl/kkop4bYM4t4sFYz2A,10
+city_id,street,image_loc,latitude,longitude,image_map,rating,requests
+1,Batistut 22,https://i.ibb.co/vZGCyBP/locacion1.jpg,51.516944,-0.086816,https://maps.app.goo.gl/kkop4bYM4t4sFYz2A,0,0
+1,Batistut 22,https://i.ibb.co/vZGCyBP/locacion1.jpg,51.516944,-0.086816,https://maps.app.goo.gl/kkop4bYM4t4sFYz2A,0,0

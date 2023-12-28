@@ -1,8 +1,11 @@
 package de.doubledecker.doubledecker.controller.dto;
 
+import de.doubledecker.doubledecker.domain.Interval;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.Setter;
 
+@Setter
 @Getter
 @AllArgsConstructor
 public class IntervalDTO {
@@ -10,4 +13,15 @@ public class IntervalDTO {
     private String timing;
     private Integer availableTickets;
     private Double price;
+
+    public IntervalDTO() {}
+
+    public static IntervalDTO convertToIntervalDTO(Interval interval) {
+        IntervalDTO intervalDTO = new IntervalDTO();
+        intervalDTO.setIntervalId(interval.getIntervalId());
+        intervalDTO.setTiming(interval.getTiming());
+        intervalDTO.setAvailableTickets(interval.getAvailable_tickets());
+        intervalDTO.setPrice(interval.getPrice());
+        return intervalDTO;
+    }
 }

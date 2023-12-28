@@ -1,8 +1,10 @@
 package de.doubledecker.doubledecker.domain;
 
 import jakarta.persistence.*;
+
 import lombok.AllArgsConstructor;
 import lombok.Getter;
+
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
@@ -23,9 +25,11 @@ public class Location {
     private City city;
 
     private String street;
-    private String img_loc;
-    private String latitude;
-    private String longitude;
+    private String image_loc;
+    private Double latitude;
+    private Double longitude;
     private String image_map;
     private Double rating;
+    private int requests;
+
 }

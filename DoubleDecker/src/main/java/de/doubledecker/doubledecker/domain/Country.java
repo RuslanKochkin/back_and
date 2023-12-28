@@ -1,10 +1,13 @@
 package de.doubledecker.doubledecker.domain;
 
+import de.doubledecker.doubledecker.controller.dto.CityDTO;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+
+import java.util.List;
 
 @Getter
 @Setter
@@ -19,5 +22,7 @@ public class Country{
     private int countryId;
     private String country;
     private String image_flag;
+
+
 }
 

@@ -28,11 +28,12 @@
             </column>
             <column name="city_id" type="bigint"/>
             <column name="street" type="varchar(60)"/>
-            <column name="img_loc" type="varchar(50)"/>
+            <column name="image_loc" type="varchar(50)"/>
             <column name="latitude" type="numeric(10,6)"/>
             <column name="longitude" type="numeric(10,6)"/>
             <column name="image_map" type="varchar(200)"/>
-            <column name="rating" type="numeric(10,2)"/>
+            <column name="rating" type="numeric(10,6)"/>
+            <column name="requests" type="numeric(10,6)"/>
         </createTable>
         <createTable tableName="intervals">
             <column name="interval_id" type="bigint" autoIncrement="true">

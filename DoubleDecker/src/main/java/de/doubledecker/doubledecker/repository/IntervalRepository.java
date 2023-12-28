@@ -7,4 +7,5 @@ import java.util.List;
 
 public interface IntervalRepository extends JpaRepository<Interval, Integer> {
     List<Interval> findByLocation_LocationId(int cityId);
+    Interval findById(int intervalId);
 }
