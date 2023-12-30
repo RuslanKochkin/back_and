@@ -50,7 +50,6 @@
             </column>
             <column name="user_id" type="bigint"/>
             <column name="location_id" type="int"/>
-            <column name="interval_id" type="int"/>
             <column name="quantity" type="numeric(10,2)"/>
         </createTable>
         <createTable tableName="users">
@@ -98,13 +97,6 @@
                 referencedTableName="locations"
                 referencedColumnNames="location_id"
         />
-        <addForeignKeyConstraint
-                baseTableName="tickets"
-                baseColumnNames="interval_id"
-                constraintName="fk_ticket_interval"
-                referencedTableName="intervals"
-                referencedColumnNames="interval_id"
-        />
 
     </changeSet>
 
@@ -124,6 +116,14 @@
         <loadData tableName="intervals"
                   separator=","
                   file="db/data/intervals.csv">
+        </loadData>
+        <loadData tableName="tickets"
+                  separator=","
+                  file="db/data/tickets.csv">
+        </loadData>
+        <loadData tableName="users"
+                  separator=","
+                  file="db/data/users.csv">
         </loadData>
     </changeSet>
 

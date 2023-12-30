@@ -6,6 +6,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.util.List;
+
 @Getter
 @Setter
 @NoArgsConstructor
@@ -15,8 +17,8 @@ import lombok.Setter;
 public class Ticket {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @JoinColumn(name = "tickets_id")
-    private Long userTicketsId;
+    @Column(name = "ticket_id")
+    private Long ticketId;
 
     @ManyToOne
     @JoinColumn(name = "user_id")
@@ -26,9 +28,7 @@ public class Ticket {
     @JoinColumn(name = "location_id")
     private Location location;
 
-    @ManyToOne
-    @JoinColumn(name = "interval_id")
-    private Interval interval;
-
     private Integer quantity;
+
+
 }

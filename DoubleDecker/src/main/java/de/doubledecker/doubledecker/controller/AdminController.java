@@ -1,24 +1,22 @@
 package de.doubledecker.doubledecker.controller;
 
 
-import de.doubledecker.doubledecker.controller.dto.CityDTO;
-import de.doubledecker.doubledecker.controller.dto.CountryDTO;
-import de.doubledecker.doubledecker.controller.dto.IntervalDTO;
-import de.doubledecker.doubledecker.controller.dto.LocationDTO;
+import de.doubledecker.doubledecker.controller.dto.*;
 
 import de.doubledecker.doubledecker.domain.Interval;
 import de.doubledecker.doubledecker.domain.Location;
+import de.doubledecker.doubledecker.domain.Ticket;
+import de.doubledecker.doubledecker.domain.User;
 import de.doubledecker.doubledecker.repository.LocationRepository;
-import de.doubledecker.doubledecker.service.CityService;
-import de.doubledecker.doubledecker.service.CountryService;
-import de.doubledecker.doubledecker.service.IntervalService;
-import de.doubledecker.doubledecker.service.LocationService;
+import de.doubledecker.doubledecker.service.*;
+import jakarta.persistence.EntityNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Objects;
 
 import static de.doubledecker.doubledecker.controller.dto.LocationDTO.convertToLocationDTO;
 
@@ -39,7 +37,9 @@ public class AdminController {
     private CityService cityService;
 
     @Autowired
-    private LocationRepository locationRepository;
+    UserService userService;
+    @Autowired
+    TicketService ticketService;
 
     @GetMapping("/all")
     public List<CountryDTO> getAllTours() {
@@ -55,6 +55,7 @@ public class AdminController {
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
+
     @PostMapping("add/city/{countryId}")
     public ResponseEntity<CityDTO> addCity(@PathVariable Integer countryId, @RequestBody CityDTO cityDTO
     ) {
@@ -65,6 +66,7 @@ public class AdminController {
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
+
     @PostMapping("/add/location/{cityId}")
     public ResponseEntity<LocationDTO> addLocation(@PathVariable Integer cityId, @RequestBody LocationDTO locationDTO
     ) {
@@ -75,6 +77,7 @@ public class AdminController {
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
+
     @PostMapping("/add/interval/{locationId}")
     public ResponseEntity<IntervalDTO> addInterval(
             @PathVariable Integer locationId,
@@ -87,10 +90,11 @@ public class AdminController {
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
-    @PutMapping("/update{intervalId}")
+
+    @PutMapping("/update/{intervalId}")
     public ResponseEntity<?> updateInterval(@PathVariable Integer intervalId, @RequestBody IntervalDTO updatedIntervalDTO) {
         try {
-            Interval updatedInterval = intervalService.updateIntervalById(intervalId, updatedIntervalDTO);
+            Interval updatedInterval = intervalService.updateIntervalById(intervalId, convertToInterval(updatedIntervalDTO));
             return new ResponseEntity<>(updatedInterval, HttpStatus.OK);
         } catch (IllegalArgumentException e) {
             return new ResponseEntity<>(e.getMessage(), HttpStatus.NOT_FOUND);
@@ -98,6 +102,14 @@ public class AdminController {
             return new ResponseEntity<>(e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
+    private Interval convertToInterval(IntervalDTO intervalDTO) {
+        Interval interval = new Interval();
+        interval.setTiming(intervalDTO.getTiming());
+        interval.setAvailable_tickets(intervalDTO.getAvailableTickets());
+        interval.setPrice(intervalDTO.getPrice());
+        return interval;
+    }
+
     @PutMapping("/update/{locationId}")
     public ResponseEntity<?> updateLocation(@PathVariable Integer locationId, @RequestBody LocationDTO updatedLocationDTO) {
         try {
@@ -109,6 +121,7 @@ public class AdminController {
             return new ResponseEntity<>(e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
+
     @PutMapping("/update-rating/{locationId}")
     public ResponseEntity<LocationDTO> updateRatingBasedOnRequests(@PathVariable Integer locationId) {
         try {
@@ -121,4 +134,26 @@ public class AdminController {
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
+
+    @PostMapping("/addToTicket")
+    public ResponseEntity<Ticket> addToCart(@RequestBody TicketDTO ticketDTO) {
+        try {
+            User user = userService.getUserById(ticketDTO.getUserId().getUserId());
+            Location location = locationService.getLocationById(ticketDTO.getLocationId());
+
+            Ticket addedTicket = ticketService.addToCart(user, location, ticketDTO.getQuantity());
+
+            return ResponseEntity.ok(addedTicket);
+        } catch (EntityNotFoundException e) {
+            return ResponseEntity.badRequest().build();
+        }
+    }
+
+    @DeleteMapping("/{countryId}")
+    public ResponseEntity<String> deleteCountry(@PathVariable int countryId) {
+        countryService.deleteCountryById(countryId);
+        return new ResponseEntity<>("Country and associated data deleted successfully", HttpStatus.OK);
+    }
+
 }
+

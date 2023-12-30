@@ -38,11 +38,11 @@ public class CountryService {
     public List<CountryDTO> findAll() {
         List<Country> countries = countryRepository.findAll();
         return countries.stream()
-                .map(this::getTourDTO)
+                .map(this::getCountryDTO)
                 .collect(Collectors.toList());
     }
 
-    private CountryDTO getTourDTO(Country country) {
+    private CountryDTO getCountryDTO(Country country) {
         List<CityDTO> cities = cityService.getCitiesForCountry(country.getCountryId());
         return new CountryDTO(country.getCountryId(), country.getCountry(), country.getImage_flag(), cities);
     }
@@ -65,6 +65,10 @@ public class CountryService {
         city.setDescription(cityDTO.getDescription());
         City savedCity = cityRepository.save(city);
         return CityDTO.convertToCityDTO(savedCity);
+    }
+
+    public void deleteCountryById(int countryId) {
+        countryRepository.deleteById(countryId);
     }
 }
 

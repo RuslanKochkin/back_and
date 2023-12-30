@@ -28,6 +28,11 @@ public class LocationService {
     @Autowired
     private IntervalRepository intervalRepository;
 
+
+    public Location getLocationById(int locationId) {
+        return locationRepository.findById(locationId)
+                .orElseThrow(() -> new EntityNotFoundException("Location not found with id: " + locationId));
+    }
     public List<LocationDTO> getLocationsForCity(int cityId) {
         List<Location> locations = locationRepository.findByCity_CityId(cityId);
         return locations.stream()

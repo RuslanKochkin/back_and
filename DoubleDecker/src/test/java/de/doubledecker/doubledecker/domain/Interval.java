@@ -1,14 +1,14 @@
 package de.doubledecker.doubledecker.domain;
 
-import de.doubledecker.doubledecker.controller.dto.IntervalDTO;
 import jakarta.persistence.*;
+
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import net.minidev.json.annotate.JsonIgnore;
 
 import java.util.List;
-
 
 @Getter
 @Setter
@@ -22,18 +22,19 @@ public class Interval {
     @Column(name = "interval_id")
     private int intervalId;
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "location_id")
     private Location location;
-
     private String timing;
 
     @Column(name = "available_tickets")
     private int available_tickets;
     private double price;
 
-//
-//    @OneToMany(mappedBy = "location_id", cascade = CascadeType.ALL)
-//    private List<Ticket> tickets;
+    @JsonIgnore
+    @OneToMany(cascade = CascadeType.ALL)
+    @JoinColumn(name = "interval_id", referencedColumnName = "interval_id")
+    private List<Ticket> tickets;
+
 
 }

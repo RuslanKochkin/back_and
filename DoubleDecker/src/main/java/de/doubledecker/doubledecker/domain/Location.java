@@ -8,6 +8,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.util.List;
+
 @Getter
 @Setter
 @NoArgsConstructor
@@ -31,5 +33,8 @@ public class Location {
     private String image_map;
     private Double rating;
     private int requests;
+//
+//    @OneToMany(mappedBy = "location", cascade = CascadeType.ALL)
+//    private List<Interval> intervals;
 
 }
