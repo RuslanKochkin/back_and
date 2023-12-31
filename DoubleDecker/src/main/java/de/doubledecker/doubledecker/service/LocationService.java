@@ -88,5 +88,9 @@ public class LocationService {
             throw new EntityNotFoundException("Location not found with street: " + street);
         }
     }
+
+    public void deleteLocationById(int locationId) {
+        locationRepository.deleteById(locationId);
+    }
 }
 

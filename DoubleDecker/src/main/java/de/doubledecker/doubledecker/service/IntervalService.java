@@ -66,5 +66,9 @@ public class IntervalService {
         return intervalRepository.findByTiming(timing)
                 .orElseThrow(() -> new EntityNotFoundException("Interval not found with timing: " + timing));
     }
+
+    public void deleteIntervalById(int intervalId) {
+        intervalRepository.deleteById(intervalId);
+    }
 }
 

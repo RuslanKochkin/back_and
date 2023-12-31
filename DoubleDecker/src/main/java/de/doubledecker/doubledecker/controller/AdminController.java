@@ -28,13 +28,15 @@ public class AdminController {
     private CountryService countryService;
 
     @Autowired
-    LocationService locationService;
-
-    @Autowired
-    IntervalService intervalService;
-
-    @Autowired
     private CityService cityService;
+
+    @Autowired
+    private LocationService locationService;
+
+    @Autowired
+    private IntervalService intervalService;
+
+
 
     @Autowired
     UserService userService;
@@ -149,6 +151,8 @@ public class AdminController {
             Ticket addedTicket = ticketService.addToCart(user, location, interval, ticketDTO.getQuantity());
             interval.setAvailable_tickets(interval.getAvailable_tickets() - ticketDTO.getQuantity());
             intervalService.updateIntervalById(interval.getIntervalId(), interval);
+
+            locationService.updateRatingBasedOnRequests(location.getLocationId());
             return ResponseEntity.ok(addedTicket);
         } catch (EntityNotFoundException e) {
             return ResponseEntity.badRequest().build();
@@ -163,10 +167,28 @@ public class AdminController {
     }
 
 
-    @DeleteMapping("/{countryId}")
+    @DeleteMapping("/deleteCountry/{countryId}")
     public ResponseEntity<String> deleteCountry(@PathVariable int countryId) {
         countryService.deleteCountryById(countryId);
         return new ResponseEntity<>("Country and associated data deleted successfully", HttpStatus.OK);
+    }
+
+    @DeleteMapping("/deleteCity/{cityId}")
+    public ResponseEntity<String> deleteCity(@PathVariable int cityId) {
+        cityService.deleteCityById(cityId);
+        return new ResponseEntity<>("City and associated data deleted successfully", HttpStatus.OK);
+    }
+
+    @DeleteMapping("/deleteLocation/{locationId}")
+    public ResponseEntity<String> deleteLocation(@PathVariable int locationId) {
+        locationService.deleteLocationById(locationId);
+        return new ResponseEntity<>("Location and associated data deleted successfully", HttpStatus.OK);
+    }
+
+    @DeleteMapping("/deleteIntervalId/{intervalId}")
+    public ResponseEntity<String> deleteInterval(@PathVariable int intervalId) {
+        intervalService.deleteIntervalById(intervalId);
+        return new ResponseEntity<>("Interval and associated data deleted successfully", HttpStatus.OK);
     }
 
 }

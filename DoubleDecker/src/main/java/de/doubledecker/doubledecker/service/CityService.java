@@ -52,4 +52,7 @@ public class CityService {
         Location savedLocation = locationRepository.save(location);
         return LocationDTO.convertToLocationDTO(savedLocation);
     }
+    public void deleteCityById(int countryId) {
+        cityRepository.deleteById(countryId);
+    }
 }
