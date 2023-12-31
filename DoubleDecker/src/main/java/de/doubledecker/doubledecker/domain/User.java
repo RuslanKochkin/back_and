@@ -1,5 +1,6 @@
 package de.doubledecker.doubledecker.domain;
 
+
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;

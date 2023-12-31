@@ -28,8 +28,8 @@ public class City {
     private String coat_of_arms;
     private String description;
 
-//    @OneToMany(mappedBy = "city", cascade = CascadeType.ALL)
-//    private List<Location> locations;
+    @OneToMany(mappedBy = "city", cascade = CascadeType.ALL)
+    private List<Location> locations;
 
 }
 

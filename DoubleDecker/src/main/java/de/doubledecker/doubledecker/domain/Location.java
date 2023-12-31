@@ -33,8 +33,8 @@ public class Location {
     private String image_map;
     private Double rating;
     private int requests;
-//
-//    @OneToMany(mappedBy = "location", cascade = CascadeType.ALL)
-//    private List<Interval> intervals;
+
+    @OneToMany(mappedBy = "location", cascade = CascadeType.ALL)
+    private List<Interval> intervals;
 
 }

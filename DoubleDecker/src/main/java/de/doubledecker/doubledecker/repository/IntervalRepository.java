@@ -18,4 +18,7 @@ public interface IntervalRepository extends JpaRepository<Interval, Integer> {
     @Query("UPDATE Interval i SET i.available_tickets = i.available_tickets - :quantity WHERE i.intervalId = :intervalId")
     void decreaseAvailableTickets(@Param("intervalId") int intervalId, @Param("quantity") int quantity);
 
+
+        Optional<Interval> findByTiming(String timing);
+
 }

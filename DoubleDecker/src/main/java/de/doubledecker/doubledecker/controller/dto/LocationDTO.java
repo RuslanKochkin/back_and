@@ -3,6 +3,7 @@ package de.doubledecker.doubledecker.controller.dto;
 import de.doubledecker.doubledecker.domain.Location;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.util.List;
@@ -11,6 +12,7 @@ import java.util.stream.Collectors;
 @Setter
 @Getter
 @AllArgsConstructor
+@NoArgsConstructor
 public class LocationDTO {
     private Integer locationId;
     private String street;
@@ -22,7 +24,6 @@ public class LocationDTO {
     private Integer requests;
     private List<IntervalDTO> intervals;
 
-    public LocationDTO() {}
 
     public static LocationDTO convertToLocationDTO(Location location) {
         LocationDTO locationDTO = new LocationDTO();

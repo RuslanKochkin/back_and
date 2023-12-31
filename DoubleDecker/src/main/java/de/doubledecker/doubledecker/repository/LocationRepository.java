@@ -5,9 +5,12 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 
 import java.util.List;
+import java.util.Optional;
 
 public interface LocationRepository extends JpaRepository<Location, Integer> {
     List<Location> findByCity_CityId(int cityId);
+
+    Optional<Location> findByStreet(String street);
 
 
     @Query("SELECT SUM(l.requests) FROM Location l")

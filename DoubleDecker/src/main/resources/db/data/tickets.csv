@@ -1,1 +1,1 @@
-ticket_id,user_id,location_id,quantity
+ticket_id,user_id,location_id,interval_id,quantity

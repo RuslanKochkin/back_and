@@ -15,6 +15,7 @@ import org.springframework.stereotype.Service;
 
 
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Service
@@ -77,6 +78,15 @@ public class LocationService {
         double rating = (double) location.getRequests() / (1 + location.getRequests()) * 10;
         location.setRating(rating);
         return locationRepository.save(location);
+    }
+    public Location getLocationByStreet(String street) {
+        Optional<Location> optionalLocation = locationRepository.findByStreet(street);
+
+        if (optionalLocation.isPresent()) {
+            return optionalLocation.get();
+        } else {
+            throw new EntityNotFoundException("Location not found with street: " + street);
+        }
     }
 }
 

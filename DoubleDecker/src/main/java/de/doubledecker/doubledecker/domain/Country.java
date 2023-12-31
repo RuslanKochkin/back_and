@@ -23,8 +23,8 @@ public class Country{
     private String country;
     private String image_flag;
 
-//    @OneToMany(mappedBy = "country", cascade = CascadeType.ALL, orphanRemoval = true)
-//    private List<City> cities;
+    @OneToMany(mappedBy = "country", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<City> cities;
 
 }
 

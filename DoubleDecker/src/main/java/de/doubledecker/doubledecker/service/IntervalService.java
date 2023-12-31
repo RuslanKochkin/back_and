@@ -53,12 +53,18 @@ public class IntervalService {
     public List<Interval> getAllIntervals() {
         return intervalRepository.findAll();
     }
+
     public void updateAvailableTicketsForAllIntervals(int newAvailableTickets) {
         List<Interval> allIntervals = intervalRepository.findAll();
         for (Interval interval : allIntervals) {
             interval.setAvailable_tickets(newAvailableTickets);
         }
         intervalRepository.saveAll(allIntervals);
+    }
+
+    public Interval getIntervalByTiming(String timing) {
+        return intervalRepository.findByTiming(timing)
+                .orElseThrow(() -> new EntityNotFoundException("Interval not found with timing: " + timing));
     }
 }
 

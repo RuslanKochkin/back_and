@@ -4,6 +4,7 @@ package de.doubledecker.doubledecker.controller.dto;
 import de.doubledecker.doubledecker.domain.City;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.util.List;
@@ -12,6 +13,7 @@ import java.util.stream.Collectors;
 @Setter
 @Getter
 @AllArgsConstructor
+@NoArgsConstructor
 public class CityDTO {
     private Integer cityId;
     private String city;
@@ -19,7 +21,7 @@ public class CityDTO {
     private String description;
     private List<LocationDTO> locations;
 
-    public CityDTO() {}
+
 
     public static CityDTO convertToCityDTO(City city) {
         CityDTO cityDTO = new CityDTO();

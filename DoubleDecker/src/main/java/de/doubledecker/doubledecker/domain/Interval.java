@@ -32,8 +32,4 @@ public class Interval {
     private int available_tickets;
     private double price;
 
-//
-//    @OneToMany(mappedBy = "location_id", cascade = CascadeType.ALL)
-//    private List<Ticket> tickets;
-
 }

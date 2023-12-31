@@ -1,5 +1,8 @@
 package de.doubledecker.doubledecker.domain;
 
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -14,6 +17,7 @@ import java.util.List;
 @AllArgsConstructor
 @Entity
 @Table(name = "tickets")
+@JsonIgnoreProperties(value = {"location", "interval"}, allowSetters = false)
 public class Ticket {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -28,7 +32,11 @@ public class Ticket {
     @JoinColumn(name = "location_id")
     private Location location;
 
-    private Integer quantity;
 
+    @ManyToOne
+    @JoinColumn(name = "interval_id")
+    private Interval interval;
+
+    private Integer quantity;
 
 }

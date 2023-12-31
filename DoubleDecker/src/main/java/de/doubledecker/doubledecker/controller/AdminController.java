@@ -102,11 +102,13 @@ public class AdminController {
             return new ResponseEntity<>(e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
+
     private Interval convertToInterval(IntervalDTO intervalDTO) {
         Interval interval = new Interval();
         interval.setTiming(intervalDTO.getTiming());
         interval.setAvailable_tickets(intervalDTO.getAvailableTickets());
         interval.setPrice(intervalDTO.getPrice());
+        // Другие установки полей по необходимости
         return interval;
     }
 
@@ -140,14 +142,26 @@ public class AdminController {
         try {
             User user = userService.getUserById(ticketDTO.getUserId().getUserId());
             Location location = locationService.getLocationById(ticketDTO.getLocationId());
-
-            Ticket addedTicket = ticketService.addToCart(user, location, ticketDTO.getQuantity());
-
+            Interval interval = intervalService.getIntervalById(ticketDTO.getIntervalId());
+            if (interval.getAvailable_tickets() < ticketDTO.getQuantity()) {
+                return ResponseEntity.badRequest().build();
+            }
+            Ticket addedTicket = ticketService.addToCart(user, location, interval, ticketDTO.getQuantity());
+            interval.setAvailable_tickets(interval.getAvailable_tickets() - ticketDTO.getQuantity());
+            intervalService.updateIntervalById(interval.getIntervalId(), interval);
             return ResponseEntity.ok(addedTicket);
         } catch (EntityNotFoundException e) {
             return ResponseEntity.badRequest().build();
         }
     }
+
+    // В TicketController
+    @GetMapping("/api/tickets")
+    public ResponseEntity<List<TicketGet>> getAllTickets() {
+        List<TicketGet> ticketGets = ticketService.getAllTickets();
+        return new ResponseEntity<>(ticketGets, HttpStatus.OK);
+    }
+
 
     @DeleteMapping("/{countryId}")
     public ResponseEntity<String> deleteCountry(@PathVariable int countryId) {
