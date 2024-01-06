@@ -17,15 +17,17 @@ public class TicketGet {
     private String locationStreet;
     private String intervalTiming;
     private Integer quantity;
+    private Integer totalPrice;
 
     private TicketGet convertToTicketGet(Ticket ticket) {
         return new TicketGet(
                 ticket.getTicketId(),
-                ticket.getUser().getName(),
+                ticket.getUser().getLogin(),
                 ticket.getUser().getEmail(),
                 ticket.getLocation().getStreet(),
                 ticket.getInterval().getTiming(),
-                ticket.getQuantity()
+                ticket.getQuantity(),
+                ticket.getTotalPrice()
         );
     }
 }

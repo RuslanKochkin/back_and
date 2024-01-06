@@ -17,8 +17,6 @@ public class IntervalDTO {
     private Integer availableTickets;
     private Double price;
 
-
-
     public static IntervalDTO convertToIntervalDTO(Interval interval) {
         IntervalDTO intervalDTO = new IntervalDTO();
         intervalDTO.setIntervalId(interval.getIntervalId());

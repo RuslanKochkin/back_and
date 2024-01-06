@@ -17,6 +17,7 @@ public class TicketDTO {
     private Integer locationId;
     private Integer intervalId;
     private Integer quantity;
+    private Integer totalPrice;
 
     public static TicketDTO convertToTicketDTO(Ticket ticket) {
         TicketDTO ticketDTO = new TicketDTO();
@@ -25,6 +26,7 @@ public class TicketDTO {
         ticketDTO.setLocationId(ticket.getLocation().getLocationId());
         ticketDTO.setIntervalId(ticket.getInterval().getIntervalId());
         ticketDTO.setQuantity(ticket.getQuantity());
+        ticketDTO.setTotalPrice(ticket.getTotalPrice());
         return ticketDTO;
     }
 }

@@ -52,15 +52,16 @@
             <column name="location_id" type="int"/>
             <column name="interval_id" type="int"/>
             <column name="quantity" type="numeric(10,2)"/>
+            <column name="total_price" type="numeric(10,2)"/>
         </createTable>
         <createTable tableName="users">
             <column name="user_id" type="bigint" autoIncrement="true">
                 <constraints primaryKey="true" nullable="false"></constraints>
             </column>
-            <column name="name" type="varchar(50)"/>
-            <column name="email" type="varchar(60)"/>
+            <column name="login" type="varchar(50)"/>
             <column name="password" type="varchar(50)"/>
-            <column name="role" type="varchar(50)"/>
+            <column name="roles" type="varchar(50)"/>
+            <column name="email" type="varchar(60)"/>
         </createTable>
 
         <addForeignKeyConstraint

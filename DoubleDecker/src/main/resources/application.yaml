@@ -4,4 +4,7 @@ spring:
     url: jdbc:postgresql://localhost:5432/doubleDecker
     username: postgres
     password: root
+  jpa:
+    show-sql: true
+
 

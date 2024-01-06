@@ -8,11 +8,14 @@ import de.doubledecker.doubledecker.domain.City;
 import de.doubledecker.doubledecker.domain.Country;
 import de.doubledecker.doubledecker.repository.CityRepository;
 import de.doubledecker.doubledecker.repository.CountryRepository;
-import jakarta.persistence.EntityNotFoundException;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-
+import javax.persistence.EntityNotFoundException;
+import javax.validation.Valid;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotNull;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -47,22 +50,32 @@ public class CountryService {
         return new CountryDTO(country.getCountryId(), country.getCountry(), country.getImage_flag(), cities);
     }
 
-    public CountryDTO addCountry(CountryDTO countryDTO) {
+    public CountryDTO addCountry(
+            @NotNull(message = "CountryDTO cannot be null") @Valid CountryDTO countryDTO
+    ) {
+        // Assuming that getCountry() and getImageFlag() cannot be null or blank in CountryDTO
         Country country = new Country();
         country.setCountry(countryDTO.getCountry());
         country.setImage_flag(countryDTO.getImageFlag());
+
         Country savedCountry = countryRepository.save(country);
         return CountryDTO.convertToCountryDTO(savedCountry);
     }
 
-    public CityDTO addCity(int countryId, CityDTO cityDTO) {
+    public CityDTO addCity(
+            @Min(value = 1, message = "Country ID must be at least 1") int countryId,
+            @NotNull(message = "CityDTO cannot be null") @Valid CityDTO cityDTO
+    ) {
         Country country = countryRepository.findById(countryId)
                 .orElseThrow(() -> new EntityNotFoundException("Country not found with id: " + countryId));
+
+        // Assuming that getCity(), getCoatOfArms(), and getDescription() cannot be null or blank in CityDTO
         City city = new City();
         city.setCountry(country);
         city.setCity(cityDTO.getCity());
         city.setCoat_of_arms(cityDTO.getCoatOfArms());
         city.setDescription(cityDTO.getDescription());
+
         City savedCity = cityRepository.save(city);
         return CityDTO.convertToCityDTO(savedCity);
     }

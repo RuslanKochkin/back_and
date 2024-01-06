@@ -5,11 +5,8 @@ import de.doubledecker.doubledecker.controller.dto.*;
 
 import de.doubledecker.doubledecker.domain.Interval;
 import de.doubledecker.doubledecker.domain.Location;
-import de.doubledecker.doubledecker.domain.Ticket;
-import de.doubledecker.doubledecker.domain.User;
-import de.doubledecker.doubledecker.repository.LocationRepository;
+
 import de.doubledecker.doubledecker.service.*;
-import jakarta.persistence.EntityNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -21,7 +18,7 @@ import java.util.Objects;
 import static de.doubledecker.doubledecker.controller.dto.LocationDTO.convertToLocationDTO;
 
 @RestController
-@RequestMapping("/tours")
+@RequestMapping("/admin")
 public class AdminController {
 
     @Autowired
@@ -42,11 +39,6 @@ public class AdminController {
     UserService userService;
     @Autowired
     TicketService ticketService;
-
-    @GetMapping("/all")
-    public List<CountryDTO> getAllTours() {
-        return countryService.findAll();
-    }
 
     @PostMapping("/add/country")
     public ResponseEntity<CountryDTO> addCountry(@RequestBody CountryDTO countryDTO) {
@@ -110,9 +102,9 @@ public class AdminController {
         interval.setTiming(intervalDTO.getTiming());
         interval.setAvailable_tickets(intervalDTO.getAvailableTickets());
         interval.setPrice(intervalDTO.getPrice());
-        // Другие установки полей по необходимости
         return interval;
     }
+
 
     @PutMapping("/update/{locationId}")
     public ResponseEntity<?> updateLocation(@PathVariable Integer locationId, @RequestBody LocationDTO updatedLocationDTO) {
@@ -126,7 +118,7 @@ public class AdminController {
         }
     }
 
-    @PutMapping("/update-rating/{locationId}")
+    @PutMapping("/update/rating/{locationId}")
     public ResponseEntity<LocationDTO> updateRatingBasedOnRequests(@PathVariable Integer locationId) {
         try {
             Location updatedLocation = locationService.updateRatingBasedOnRequests(locationId);
@@ -139,27 +131,7 @@ public class AdminController {
         }
     }
 
-    @PostMapping("/addToTicket")
-    public ResponseEntity<Ticket> addToCart(@RequestBody TicketDTO ticketDTO) {
-        try {
-            User user = userService.getUserById(ticketDTO.getUserId().getUserId());
-            Location location = locationService.getLocationById(ticketDTO.getLocationId());
-            Interval interval = intervalService.getIntervalById(ticketDTO.getIntervalId());
-            if (interval.getAvailable_tickets() < ticketDTO.getQuantity()) {
-                return ResponseEntity.badRequest().build();
-            }
-            Ticket addedTicket = ticketService.addToCart(user, location, interval, ticketDTO.getQuantity());
-            interval.setAvailable_tickets(interval.getAvailable_tickets() - ticketDTO.getQuantity());
-            intervalService.updateIntervalById(interval.getIntervalId(), interval);
 
-            locationService.updateRatingBasedOnRequests(location.getLocationId());
-            return ResponseEntity.ok(addedTicket);
-        } catch (EntityNotFoundException e) {
-            return ResponseEntity.badRequest().build();
-        }
-    }
-
-    // В TicketController
     @GetMapping("/api/tickets")
     public ResponseEntity<List<TicketGet>> getAllTickets() {
         List<TicketGet> ticketGets = ticketService.getAllTickets();
@@ -167,25 +139,25 @@ public class AdminController {
     }
 
 
-    @DeleteMapping("/deleteCountry/{countryId}")
+    @DeleteMapping("/delete/country/{countryId}")
     public ResponseEntity<String> deleteCountry(@PathVariable int countryId) {
         countryService.deleteCountryById(countryId);
         return new ResponseEntity<>("Country and associated data deleted successfully", HttpStatus.OK);
     }
 
-    @DeleteMapping("/deleteCity/{cityId}")
+    @DeleteMapping("/delete/city/{cityId}")
     public ResponseEntity<String> deleteCity(@PathVariable int cityId) {
         cityService.deleteCityById(cityId);
         return new ResponseEntity<>("City and associated data deleted successfully", HttpStatus.OK);
     }
 
-    @DeleteMapping("/deleteLocation/{locationId}")
+    @DeleteMapping("/delete/location/{locationId}")
     public ResponseEntity<String> deleteLocation(@PathVariable int locationId) {
         locationService.deleteLocationById(locationId);
         return new ResponseEntity<>("Location and associated data deleted successfully", HttpStatus.OK);
     }
 
-    @DeleteMapping("/deleteIntervalId/{intervalId}")
+    @DeleteMapping("/delete/interval/{intervalId}")
     public ResponseEntity<String> deleteInterval(@PathVariable int intervalId) {
         intervalService.deleteIntervalById(intervalId);
         return new ResponseEntity<>("Interval and associated data deleted successfully", HttpStatus.OK);

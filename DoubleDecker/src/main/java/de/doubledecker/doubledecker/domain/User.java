@@ -1,11 +1,14 @@
 package de.doubledecker.doubledecker.domain;
 
 
-import jakarta.persistence.*;
+
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+
+import javax.persistence.*;
+
 
 @Getter
 @Setter
@@ -19,8 +22,10 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "user_id")
     private long userId;
-    private String name;
-    private String email;
+
+    private String login;
     private String password;
-    private  String role;
+    private  String roles;
+    private String email;
+
 }

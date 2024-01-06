@@ -7,13 +7,14 @@ import de.doubledecker.doubledecker.domain.Interval;
 import de.doubledecker.doubledecker.domain.Location;
 import de.doubledecker.doubledecker.repository.IntervalRepository;
 import de.doubledecker.doubledecker.repository.LocationRepository;
-import jakarta.persistence.EntityNotFoundException;
-
-import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
-
+import javax.persistence.EntityNotFoundException;
+import javax.validation.Valid;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotNull;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
@@ -46,27 +47,43 @@ public class LocationService {
         return new LocationDTO(location.getLocationId(), location.getStreet(), location.getImage_loc(), location.getLatitude(), location.getLongitude(), location.getImage_map(), location.getRating(), location.getRequests(), intervals);
     }
 
-    public IntervalDTO addInterval(int locationId, IntervalDTO intervalDTO) {
+    public IntervalDTO addInterval(
+            @Min(value = 1, message = "Location ID must be at least 1") int locationId,
+            @NotNull(message = "IntervalDTO cannot be null") @Valid IntervalDTO intervalDTO
+    ) {
         Location location = locationRepository.findById(locationId)
-                .orElseThrow(() -> new EntityNotFoundException("City not found with id: " + locationId));
+                .orElseThrow(() -> new EntityNotFoundException("Location not found with id: " + locationId));
+
         Interval interval = new Interval();
         interval.setLocation(location);
+
+        // Assuming that getTiming(), getAvailableTickets(), and getPrice() cannot be null in IntervalDTO
         interval.setTiming(intervalDTO.getTiming());
         interval.setAvailable_tickets(intervalDTO.getAvailableTickets());
         interval.setPrice(intervalDTO.getPrice());
+
         Interval savedInterval = intervalRepository.save(interval);
         return IntervalDTO.convertToIntervalDTO(savedInterval);
     }
 
-    public Location updateLocationById(Integer locationId, LocationDTO updatedLocationDTO) {
+    public Location updateLocationById(
+            @NotNull(message = "Location ID cannot be null") @Min(value = 1, message = "Location ID must be at least 1") Integer locationId,
+            @NotNull(message = "UpdatedLocationDTO cannot be null") @Valid LocationDTO updatedLocationDTO
+    ) {
         Location existingLocation = locationRepository.findById(locationId)
                 .orElseThrow(() -> new IllegalArgumentException("Location not found"));
+
+        // Assuming that getStreet(), getImageLoc(), getLatitude(), getLongitude(),
+        // getImageMap(), and getRating() cannot be null in LocationDTO
         existingLocation.setStreet(updatedLocationDTO.getStreet());
         existingLocation.setImage_loc(updatedLocationDTO.getImageLoc());
         existingLocation.setLatitude(updatedLocationDTO.getLatitude());
         existingLocation.setLongitude(updatedLocationDTO.getLongitude());
         existingLocation.setImage_map(updatedLocationDTO.getImageMap());
+
+        // Assuming that getRating() is a positive or zero value
         existingLocation.setRating(updatedLocationDTO.getRating());
+
         return locationRepository.save(existingLocation);
     }
 

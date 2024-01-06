@@ -1,2 +1,3 @@
-user_id,name,email,password,role
-1,Ruslan,ruslan.vladimirovich.kochkin@gmail.com,7777777,admin
+login,password,roles
+admin,admin,ADMIN
+user,user,USER
